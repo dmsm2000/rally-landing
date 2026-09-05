@@ -1,3 +1,13 @@
 :host {
   display: block;
 }
+
+.chevron {
+  font-size: 0.7rem;
+  color: var(--color-muted-foreground);
+}
+
+.chevron--open {
+  transform: rotate(180deg);
+  color: var(--color-lime);
+}

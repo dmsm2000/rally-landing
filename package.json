@@ -16,7 +16,6 @@
     "@angular/core": "^22.1.0",
     "@angular/forms": "^22.1.0",
     "@angular/platform-browser": "^22.1.0",
-    "@countrystatecity/countries-browser": "^1.0.4",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },

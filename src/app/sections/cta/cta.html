@@ -24,35 +24,6 @@
         novalidate
       >
         <input
-          type="text"
-          name="name"
-          [(ngModel)]="name"
-          [placeholder]="'cta.namePlaceholder' | translate"
-          autocomplete="name"
-          class="w-full rounded-full border border-border bg-card px-5 py-3 text-center text-sm text-bone placeholder:text-muted-foreground focus:border-lime focus:outline-none"
-        />
-
-        <div class="flex flex-row gap-2 sm:gap-3">
-          <ui-autocomplete
-            class="flex-1"
-            name="country"
-            [(value)]="country"
-            [options]="countryNames()"
-            [optionIcons]="countryFlags()"
-            [placeholder]="'cta.countryPlaceholder' | translate"
-          />
-
-          <ui-autocomplete
-            class="flex-1"
-            name="city"
-            [(value)]="city"
-            [options]="cityOptions()"
-            [disabled]="!country()"
-            [placeholder]="(country() ? 'cta.cityPlaceholder' : 'cta.cityPlaceholderLocked') | translate"
-          />
-        </div>
-
-        <input
           type="email"
           name="email"
           required

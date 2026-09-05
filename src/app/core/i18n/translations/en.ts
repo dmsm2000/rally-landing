@@ -19,14 +19,16 @@ export const en = {
     title: 'How it works',
     q1Title: 'Who do I play with?',
     q1Body:
-      "Filter by level, format and availability. Nobody here forces you onto a court against someone serving 200 km/h just because.",
+      'Filter by level, format and availability. Nobody here forces you onto a court against someone serving 200 km/h just because.',
     q2Title: 'Where do I play?',
     q2Body:
       "A court database built by people who actually play there — no ghost pins on the map. If it's on RALLY, someone really stood there.",
     q3Title: 'How do I set up the game?',
-    q3Body: 'Invite, accept, done — no 40-message group chat to agree on a time. Save that for the family WhatsApp.',
+    q3Body:
+      'Invite, accept, done — no 40-message group chat to agree on a time. Save that for the family WhatsApp.',
     q4Title: "What's my track record?",
-    q4Body: 'A tennis passport: countries, courts, and opponents. You collect stamps, not plastic trophies.',
+    q4Body:
+      'A tennis passport: countries, courts, and opponents. You collect stamps, not plastic trophies.',
   },
   features: {
     eyebrow: 'Already real',
@@ -35,11 +37,13 @@ export const en = {
     feedTitle: 'Feed',
     feedBody: "What's happening around you — no infinite scroll, no 8-hour stories.",
     courtsTitle: 'Courts',
-    courtsBody: 'Discovered and confirmed by real players, GPS-checked so nobody invents a court in the middle of the ocean.',
+    courtsBody:
+      'Discovered and confirmed by real players, GPS-checked so nobody invents a court in the middle of the ocean.',
     matchesTitle: 'Matches',
     matchesBody: 'Direct invites or open matches — singles or doubles, waiting for you.',
     passportTitle: 'Passport',
-    passportBody: 'Countries, courts, and people you met playing — proof you actually left the house.',
+    passportBody:
+      'Countries, courts, and people you met playing — proof you actually left the house.',
     messagesTitle: 'Messages',
     messagesBody: "Just enough to set up the game: time, place, and who's bringing the balls.",
     tripsTitle: 'Show me around',
@@ -49,7 +53,7 @@ export const en = {
     eyebrow: 'To be clear',
     title: 'What RALLY is NOT',
     item1: "It's not about stats or comparisons. It's about the community and the game.",
-    item2: "Not an endless-scroll social network. The feed is small on purpose.",
+    item2: 'Not an endless-scroll social network. The feed is small on purpose.',
     item3: "It's not about always winning. It's about always having a game.",
     ticker1: 'NO RANKINGS',
     ticker2: 'NO DRAMA',
@@ -68,11 +72,7 @@ export const en = {
     eyebrow: 'Still under construction, but for real',
     title: 'Be the first to know',
     body: "We're still warming up — but the launch party is already on its way. Leave your email and grab a front-row seat before everyone else.",
-    namePlaceholder: 'What should we call you?',
     emailPlaceholder: 'you@email.com',
-    countryPlaceholder: 'Country (optional)',
-    cityPlaceholder: 'City (optional)',
-    cityPlaceholderLocked: 'Pick a country',
     button: 'Count me in first',
     submitting: 'One sec…',
     note: 'No spam. Just tennis.',
@@ -82,7 +82,7 @@ export const en = {
     errorNetwork: 'Oops, that one went out. Try again?',
   },
   footer: {
-    tagline: 'RALLY — your next tennis partner is closer than you think.',
+    tagline: 'Wherever tennis takes you.',
     madeWith: 'Made with ❤️ and a few balls lost behind the net.',
     rights: '© {year} RALLY. All rights reserved.',
     contact: 'Get in touch',

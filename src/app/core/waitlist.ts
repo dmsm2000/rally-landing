@@ -6,9 +6,6 @@ export const EMAIL_PATTERN = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
 export interface WaitlistEntry {
   email: string;
-  name: string;
-  country: string;
-  city: string;
   locale: Locale;
 }
 
@@ -16,12 +13,13 @@ export type WaitlistResult = { ok: true } | { ok: false; reason: 'invalid-email'
 
 /**
  * Calls the `join_waitlist` RPC (see rally/supabase/migrations/0034_landing_waitlist_rpc.sql)
- * instead of writing to `public.landing_waitlist` directly. A plain `security definer` function was
- * the fix after `INSERT ... ON CONFLICT DO UPDATE` kept failing RLS even with correct INSERT/UPDATE
- * policies in place — that specific statement shape needs read visibility into the conflicting row,
- * which would otherwise require a SELECT policy making every signup email readable by anyone with
- * the published anon key. No @supabase/supabase-js here: a single RPC call doesn't justify the
- * dependency weight on a marketing page. Nothing is ever read back client-side.
+ * instead of writing to `public.landing_waitlist` directly — see that migration for why a plain
+ * table insert/upsert doesn't work here. No @supabase/supabase-js: a single RPC call doesn't
+ * justify the dependency weight on a marketing page. Nothing is ever read back client-side.
+ *
+ * The form only asks for an email (name/country/city were dropped) — the RPC still accepts them
+ * as optional parameters with defaults, so nothing on the database side needs to change if they
+ * come back later.
  */
 @Service()
 export class Waitlist {
@@ -39,13 +37,7 @@ export class Waitlist {
           Authorization: `Bearer ${environment.supabaseAnonKey}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          p_email: email,
-          p_name: entry.name.trim() || null,
-          p_country: entry.country.trim() || null,
-          p_city: entry.city.trim() || null,
-          p_locale: entry.locale,
-        }),
+        body: JSON.stringify({ p_email: email, p_locale: entry.locale }),
       });
 
       return response.ok ? { ok: true } : { ok: false, reason: 'network' };
