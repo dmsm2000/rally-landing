@@ -1,59 +1,31 @@
-# RallyLanding
+# 🎾 RALLY — Landing Page
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.6.
+The public marketing page for RALLY, the social tennis app in the sibling `rally/` project. Dark-mode
+only (no toggle — this is a marketing page, not the app shell), animated, and available in
+Portuguese (default), English and Spanish.
 
-## Development server
+Single page, no backend: the primary call to action is a `mailto:` link, since there are no real
+users yet and no waitlist backend to wire it to.
 
-To start a local development server, run:
+## Structure
 
-```bash
-ng serve
+```text
+src/app/
+  core/
+    i18n/            Translation service + pipe + pt/en/es dictionaries (pt is the source of truth)
+    reveal-on-scroll.ts   IntersectionObserver directive driving the scroll-in animations
+  sections/          One component per page section (hero, how-it-works, features, not-this, adventure, cta)
+  shared/            Language switcher, footer
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Design tokens (`src/styles.css`) mirror the main app's dark palette (`ink`/`bone`/`lime`/`clay`/`cobalt`)
+so the two feel like one brand — see `../rally/PRODUCT.md`'s "Brand Identity" section for the RALLY
+naming rule (always caps, feminine gender in Portuguese) this page follows.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Development
 
 ```bash
-ng generate --help
+npm install
+npm start   # http://localhost:4200
+npm run build
 ```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

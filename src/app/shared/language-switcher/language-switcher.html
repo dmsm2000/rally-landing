@@ -1,0 +1,21 @@
+<div
+  class="flex items-center gap-0.5 rounded-full border border-border bg-card/70 p-1 backdrop-blur-md"
+  role="group"
+  [attr.aria-label]="'nav.language' | translate"
+>
+  @for (locale of i18n.locales; track locale) {
+    <button
+      type="button"
+      (click)="select(locale)"
+      [attr.aria-pressed]="i18n.locale() === locale"
+      class="cursor-pointer rounded-full px-2.5 py-1 text-eyebrow transition-colors duration-200"
+      [class]="
+        i18n.locale() === locale
+          ? 'bg-lime text-ink'
+          : 'text-muted-foreground hover:bg-muted hover:text-foreground'
+      "
+    >
+      {{ labels[locale] }}
+    </button>
+  }
+</div>

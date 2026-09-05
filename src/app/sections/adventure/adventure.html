@@ -1,0 +1,35 @@
+<section class="relative mx-auto grid max-w-6xl gap-8 overflow-hidden px-5 py-14 sm:px-8 sm:py-24 lg:grid-cols-2 lg:items-center lg:gap-12">
+  <div class="flex flex-col items-start gap-4 text-left">
+    <span appRevealOnScroll="left" class="text-eyebrow text-lime">{{ 'adventure.eyebrow' | translate }}</span>
+    <h2 appRevealOnScroll="left" [style.--reveal-delay]="'0.05s'" class="text-display text-4xl text-bone sm:text-5xl">
+      {{ 'adventure.title' | translate }}
+    </h2>
+    <p appRevealOnScroll="left" [style.--reveal-delay]="'0.1s'" class="max-w-md text-lg leading-relaxed text-muted-foreground">
+      {{ 'adventure.body' | translate }}
+    </p>
+  </div>
+
+  <div appRevealOnScroll="right" class="relative flex items-center justify-center">
+    <div class="passport-card relative rounded-[2rem] border border-border bg-card p-6 shadow-2xl shadow-black/30 sm:p-8">
+      <p class="text-eyebrow text-muted-foreground">{{ 'adventure.passportLabel' | translate }}</p>
+      <p class="text-display mt-1 text-2xl text-bone">RALLY</p>
+
+      <div class="mt-6 grid grid-cols-4 gap-3">
+        @for (stamp of stamps; track stamp; let i = $index) {
+          <span
+            class="stamp animate-float flex size-12 items-center justify-center rounded-full border-2 border-dashed border-border text-xl"
+            [style.animation-delay]="i * -0.7 + 's'"
+          >
+            {{ stamp }}
+          </span>
+        }
+      </div>
+
+      <div class="mt-6 h-px w-full bg-border"></div>
+      <p class="mt-4 text-xs text-muted-foreground">{{ 'adventure.passportStats' | translate }}</p>
+    </div>
+
+    <span class="animate-float absolute -left-6 -top-6 text-3xl opacity-70" style="animation-delay: -2s" aria-hidden="true">✈️</span>
+    <span class="animate-float absolute -bottom-4 -right-4 text-3xl opacity-70" style="animation-delay: -4s" aria-hidden="true">🧳</span>
+  </div>
+</section>

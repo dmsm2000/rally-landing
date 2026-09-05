@@ -1,0 +1,256 @@
+/* source(none) turns off Tailwind v4's automatic content detection so only src/ can generate CSS
+   (mirrors the main `rally` app's styles.css — see that file for why this matters). */
+@import 'tailwindcss' source(none);
+@source '../src';
+
+@theme inline {
+  --font-display: 'Archivo', 'Archivo Black', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-ink: var(--ink);
+  --color-bone: var(--bone);
+  --color-lime: var(--lime);
+  --color-lime-deep: var(--lime-deep);
+  --color-clay: var(--clay);
+  --color-cobalt: var(--cobalt);
+  --color-line: var(--line);
+}
+
+/* RALLY the brand is dark-mode only here — this is a marketing page, not the app shell, so there is
+   no toggle to build or persist. Same token names/values as the app's `.dark` palette in
+   src/styles.css over in `rally/`, just applied unconditionally on :root. */
+:root {
+  --ink: oklch(0.19 0.017 252);
+  --bone: oklch(0.973 0.008 95);
+  --lime: oklch(0.885 0.201 124);
+  --lime-deep: oklch(0.72 0.17 128);
+  --clay: oklch(0.68 0.16 48);
+  --cobalt: oklch(0.6 0.17 258);
+  --line: oklch(1 0 0 / 12%);
+
+  --background: oklch(0.14 0.014 252);
+  --foreground: oklch(0.95 0.008 95);
+  --card: oklch(0.19 0.016 252);
+  --card-foreground: oklch(0.95 0.008 95);
+  --border: oklch(1 0 0 / 10%);
+  --muted: oklch(0.23 0.016 252);
+  --muted-foreground: oklch(0.68 0.015 252);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+    box-sizing: border-box;
+  }
+
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@utility text-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+@utility text-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+@utility court-grid {
+  background-image:
+    linear-gradient(to right, oklch(1 0 0 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(1 0 0 / 0.06) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* --- Reveal-on-scroll: toggled by the RevealOnScroll directive, never Angular animations,
+   to keep this a plain-CSS marketing page. --- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+[data-reveal='rise'] {
+  transform: translateY(24px);
+}
+
+[data-reveal='left'] {
+  transform: translateX(-32px);
+}
+
+[data-reveal='right'] {
+  transform: translateX(32px);
+}
+
+[data-reveal='scale'] {
+  transform: scale(0.92);
+}
+
+/* Stagger children of a revealed group one after another via inline --reveal-delay. */
+[data-reveal] {
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+/* --- Hero ball hop: a tennis ball bouncing left to right across the hero, squashing on impact. --- */
+@keyframes rally-hop {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  20% {
+    transform: translate(20vw, -38vh) rotate(140deg);
+  }
+  40% {
+    transform: translate(40vw, 0) rotate(280deg);
+  }
+  42% {
+    transform: translate(41vw, 6px) scale(1.15, 0.85) rotate(285deg);
+  }
+  60% {
+    transform: translate(60vw, -22vh) rotate(420deg);
+  }
+  80% {
+    transform: translate(80vw, 0) rotate(560deg);
+  }
+  82% {
+    transform: translate(81vw, 6px) scale(1.15, 0.85) rotate(565deg);
+  }
+  100% {
+    transform: translate(100vw, -10vh) rotate(650deg);
+  }
+}
+
+.animate-hop {
+  animation: rally-hop 7s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+/* --- Decorative floating balls in section backgrounds: slow drift + rotation, never in sync. --- */
+@keyframes rally-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(12deg);
+  }
+}
+
+.animate-float {
+  animation: rally-float 6s ease-in-out infinite;
+}
+
+/* --- Dashed court lines that "draw themselves" once, used behind headlines. --- */
+@keyframes rally-draw {
+  from {
+    stroke-dashoffset: var(--draw-length, 1000);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-draw {
+  stroke-dasharray: var(--draw-length, 1000);
+  animation: rally-draw 2.4s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s both;
+}
+
+/* --- Soft pulsing glow behind the primary CTA button. --- */
+@keyframes rally-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.06);
+  }
+}
+
+.animate-pulse-glow {
+  animation: rally-pulse 2.8s ease-in-out infinite;
+}
+
+/* --- Marquee: a seamless looping strip of words/emoji (used for the "not this" ticker). --- */
+@keyframes rally-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: rally-marquee 22s linear infinite;
+}

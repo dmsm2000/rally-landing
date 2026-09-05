@@ -1,0 +1,33 @@
+:host {
+  display: block;
+}
+
+.feature-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.feature-card--lime::before {
+  background: radial-gradient(120px circle at 85% -10%, color-mix(in oklch, var(--color-lime) 30%, transparent), transparent 70%);
+}
+
+.feature-card--clay::before {
+  background: radial-gradient(120px circle at 85% -10%, color-mix(in oklch, var(--color-clay) 35%, transparent), transparent 70%);
+}
+
+.feature-card--cobalt::before {
+  background: radial-gradient(120px circle at 85% -10%, color-mix(in oklch, var(--color-cobalt) 35%, transparent), transparent 70%);
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}

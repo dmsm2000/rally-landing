@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+.passport-card {
+  max-width: 22rem;
+}
+
+.stamp:nth-child(3n + 1) {
+  border-color: color-mix(in oklch, var(--color-lime) 45%, var(--color-border));
+}
+
+.stamp:nth-child(3n + 2) {
+  border-color: color-mix(in oklch, var(--color-clay) 45%, var(--color-border));
+}
+
+.stamp:nth-child(3n) {
+  border-color: color-mix(in oklch, var(--color-cobalt) 45%, var(--color-border));
+}

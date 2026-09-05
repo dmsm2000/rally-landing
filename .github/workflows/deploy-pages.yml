@@ -1,0 +1,70 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # Runner's bundled npm can hit a known crash ("Exit handler never
+      # called!", npm/cli#4028) — upgrading npm first avoids it.
+      - run: npm install -g npm@latest
+
+      - run: npm ci
+
+      # environment.ts is gitignored (holds the Supabase URL/anon key, same project as `rally`) —
+      # generate it here from repo secrets (Settings → Secrets and variables → Actions →
+      # SUPABASE_URL / SUPABASE_ANON_KEY). These are a separate repo from `rally`, so the secrets
+      # must be added here too even though the values are identical.
+      - name: Generate environment.ts
+        run: |
+          mkdir -p src/environments
+          cat > src/environments/environment.ts <<EOF
+          export const environment = {
+            production: true,
+            supabaseUrl: '${{ secrets.SUPABASE_URL }}',
+            supabaseAnonKey: '${{ secrets.SUPABASE_ANON_KEY }}'
+          };
+          EOF
+
+      - run: npx ng build --configuration production --base-href /rally-landing/
+
+      # SPA fallback: GitHub Pages has no server-side rewrites. This page has no router today
+      # (it's a single scrolling page with in-page anchors), but keeping this mirrors the main
+      # `rally` app's deploy strategy and costs nothing if routing is ever added here.
+      - run: cp dist/rally-landing/browser/index.html dist/rally-landing/browser/404.html
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/rally-landing/browser
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

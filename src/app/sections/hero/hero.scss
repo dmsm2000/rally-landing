@@ -1,0 +1,16 @@
+:host {
+  display: block;
+}
+
+.hero-glow {
+  background: radial-gradient(
+    620px circle at var(--glow-x, 50%) var(--glow-y, 38%),
+    color-mix(in oklch, var(--color-lime) 22%, transparent),
+    transparent 65%
+  );
+  transition: background-position 0.2s ease;
+}
+
+.hero-ball-track {
+  will-change: transform;
+}

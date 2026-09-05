@@ -1,0 +1,8 @@
+:host {
+  display: block;
+}
+
+.ticker {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}

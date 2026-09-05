@@ -1,11 +1,27 @@
-import { Component, signal } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
+import { TranslatePipe } from './core/i18n/translate-pipe';
+import { Translation } from './core/i18n/translation';
+import { LanguageSwitcher } from './shared/language-switcher/language-switcher';
+import { Footer } from './shared/footer/footer';
+import { Hero } from './sections/hero/hero';
+import { HowItWorks } from './sections/how-it-works/how-it-works';
+import { Features } from './sections/features/features';
+import { NotThis } from './sections/not-this/not-this';
+import { Adventure } from './sections/adventure/adventure';
+import { Cta } from './sections/cta/cta';
 
 @Component({
-  imports: [],
+  imports: [TranslatePipe, LanguageSwitcher, Footer, Hero, HowItWorks, Features, NotThis, Adventure, Cta],
   selector: 'app-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('rally-landing');
+  protected readonly i18n = inject(Translation);
+
+  constructor() {
+    effect(() => {
+      document.documentElement.lang = this.i18n.locale();
+    });
+  }
 }

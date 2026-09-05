@@ -1,0 +1,16 @@
+:host {
+  display: block;
+}
+
+.how-card--open {
+  border-color: color-mix(in oklch, var(--color-lime) 40%, var(--color-border));
+}
+
+.chevron {
+  font-size: 1.1rem;
+}
+
+.chevron--open {
+  transform: rotate(180deg);
+  color: var(--color-lime);
+}
