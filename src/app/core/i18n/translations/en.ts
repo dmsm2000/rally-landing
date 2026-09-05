@@ -10,7 +10,7 @@ export const en = {
     eyebrow: 'Wherever tennis takes you',
     title: 'GAME ON?',
     subtitle:
-      'Your next tennis partner is closer than you think. Zero rankings, zero drama — just balls, courts, and good company.',
+      'Your next tennis partner is closer than you think. Zero rankings, zero drama - just balls, courts, and good company.',
     ctaPrimary: 'Count me in',
     ctaSecondary: 'See how it works',
   },
@@ -22,10 +22,10 @@ export const en = {
       'Filter by level, format and availability. Nobody here forces you onto a court against someone serving 200 km/h just because.',
     q2Title: 'Where do I play?',
     q2Body:
-      "A court database built by people who actually play there — no ghost pins on the map. If it's on RALLY, someone really stood there.",
+      "A court database built by people who actually play there - no ghost pins on the map. If it's on RALLY, someone really stood there.",
     q3Title: 'How do I set up the game?',
     q3Body:
-      'Invite, accept, done — no 40-message group chat to agree on a time. Save that for the family WhatsApp.',
+      'Invite, accept, done - no 40-message group chat to agree on a time. Save that for the family WhatsApp.',
     q4Title: "What's my track record?",
     q4Body:
       'A tennis passport: countries, courts, and opponents. You collect stamps, not plastic trophies.',
@@ -35,15 +35,15 @@ export const en = {
     title: "What you'll be able to do",
     subtitle: 'No vague promises. This is already in play.',
     feedTitle: 'Feed',
-    feedBody: "What's happening around you — no infinite scroll, no 8-hour stories.",
+    feedBody: "What's happening around you - no infinite scroll, no 8-hour stories.",
     courtsTitle: 'Courts',
     courtsBody:
       'Discovered and confirmed by real players, GPS-checked so nobody invents a court in the middle of the ocean.',
     matchesTitle: 'Matches',
-    matchesBody: 'Direct invites or open matches — singles or doubles, waiting for you.',
+    matchesBody: 'Direct invites or open matches - singles or doubles, waiting for you.',
     passportTitle: 'Passport',
     passportBody:
-      'Countries, courts, and people you met playing — proof you actually left the house.',
+      'Countries, courts, and people you met playing - proof you actually left the house.',
     messagesTitle: 'Messages',
     messagesBody: "Just enough to set up the game: time, place, and who's bringing the balls.",
     tripsTitle: 'Show me around',
@@ -64,14 +64,14 @@ export const en = {
   adventure: {
     eyebrow: 'Bring your racket',
     title: 'Tennis is also a good excuse to travel',
-    body: 'Every city has a court waiting to be found — and someone willing to show you around. Your tennis passport fills up with countries, not airport selfies.',
+    body: 'Every city has a court waiting to be found - and someone willing to show you around. Your tennis passport fills up with countries, not airport selfies.',
     passportLabel: 'Tennis Passport',
     passportStats: '🎾 courts captured · 🌍 countries stamped · 🤝 players met',
   },
   cta: {
     eyebrow: 'Still under construction, but for real',
     title: 'Be the first to know',
-    body: "We're still warming up — but the launch party is already on its way. Leave your email and grab a front-row seat before everyone else.",
+    body: "We're still warming up - but the launch party is already on its way. Leave your email and grab a front-row seat before everyone else.",
     emailPlaceholder: 'you@email.com',
     button: 'Count me in first',
     submitting: 'One sec…',
