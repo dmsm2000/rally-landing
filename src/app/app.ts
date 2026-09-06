@@ -1,6 +1,7 @@
 import { Component, effect, inject } from '@angular/core';
 import { TranslatePipe } from './core/i18n/translate-pipe';
 import { Translation } from './core/i18n/translation';
+import { TwemojiRendererService } from './core/services/twemoji-renderer.service';
 import { LanguageSwitcher } from './shared/language-switcher/language-switcher';
 import { Footer } from './shared/footer/footer';
 import { Hero } from './sections/hero/hero';
@@ -18,10 +19,12 @@ import { Cta } from './sections/cta/cta';
 })
 export class App {
   protected readonly i18n = inject(Translation);
+  private readonly twemoji = inject(TwemojiRendererService);
 
   constructor() {
     effect(() => {
       document.documentElement.lang = this.i18n.locale();
     });
+    this.twemoji.start();
   }
 }

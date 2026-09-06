@@ -19,16 +19,16 @@ export const en = {
     title: 'How it works',
     q1Title: 'Who do I play with?',
     q1Body:
-      'Filter by level, format and availability. Nobody here forces you onto a court against someone serving 200 km/h just because.',
+      'Match score that blends level, format and availability to pair you with the right players. Nobody here puts you on a court against someone serving 200 km/h just because.',
     q2Title: 'Where do I play?',
     q2Body:
-      "A court database built by people who actually play there - no ghost pins on the map. If it's on RALLY, someone really stood there.",
+      "A court database built by people who actually play there - no ghost markers on the map. If it's on RALLY, someone really stood there.",
     q3Title: 'How do I set up the game?',
     q3Body:
-      'Invite, accept, done - no 40-message group chat to agree on a time. Save that for the family WhatsApp.',
+      'Invite, accept, done - no 40-message group chat to agree on a time. Save that for the friends group chat.',
     q4Title: "What's my track record?",
     q4Body:
-      'A tennis passport: countries, courts, and opponents. You collect stamps, not plastic trophies.',
+      'A tennis passport: countries, courts, and opponents. You collect experiences, not trophies.',
   },
   features: {
     eyebrow: 'Already real',
@@ -40,7 +40,8 @@ export const en = {
     courtsBody:
       'Discovered and confirmed by real players, GPS-checked so nobody invents a court in the middle of the ocean.',
     matchesTitle: 'Matches',
-    matchesBody: 'Direct invites or open matches - singles or doubles, waiting for you.',
+    matchesBody:
+      'Direct invites or open matches - singles or doubles. A serious match, a practice session, or just hitting balls - your call.',
     passportTitle: 'Passport',
     passportBody:
       'Countries, courts, and people you met playing - proof you actually left the house.',

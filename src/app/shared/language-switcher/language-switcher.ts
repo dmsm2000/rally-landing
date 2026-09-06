@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener, inject, signal } from '@angular/co
 import { TranslatePipe } from '../../core/i18n/translate-pipe';
 import { LOCALE_FLAGS, LOCALE_LABELS, Locale } from '../../core/i18n/locale';
 import { Translation } from '../../core/i18n/translation';
+import { TwemojiRendererService } from '../../core/services/twemoji-renderer.service';
 
 @Component({
   imports: [TranslatePipe],
@@ -11,6 +12,7 @@ import { Translation } from '../../core/i18n/translation';
 })
 export class LanguageSwitcher {
   protected readonly i18n = inject(Translation);
+  protected readonly twemoji = inject(TwemojiRendererService);
   protected readonly labels = LOCALE_LABELS;
   protected readonly flags = LOCALE_FLAGS;
   protected readonly open = signal(false);

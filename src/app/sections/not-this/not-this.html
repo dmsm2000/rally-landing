@@ -1,17 +1,17 @@
-<section class="relative overflow-hidden border-y border-border bg-card/40 py-14 sm:py-20">
-  <div class="mx-auto flex max-w-4xl flex-col items-center gap-3 px-5 text-center sm:px-8">
+<section class="relative overflow-hidden border-y border-border bg-card/40 py-14 sm:py-24">
+  <div class="mx-auto flex max-w-6xl flex-col items-center gap-3 px-5 text-center sm:px-8">
     <span appRevealOnScroll="scale" class="text-eyebrow text-clay">{{ 'notThis.eyebrow' | translate }}</span>
-    <h2 appRevealOnScroll="rise" class="text-display text-3xl text-bone sm:text-4xl">
+    <h2 appRevealOnScroll="rise" class="text-display text-4xl text-bone sm:text-5xl">
       {{ 'notThis.title' | translate }}
     </h2>
   </div>
 
-  <div class="mx-auto mt-8 grid max-w-4xl gap-3 px-5 sm:mt-10 sm:grid-cols-3 sm:gap-4 sm:px-8">
+  <div class="mx-auto mt-8 grid max-w-6xl gap-3 px-5 sm:mt-14 sm:grid-cols-3 sm:gap-5 sm:px-8">
     @for (item of items; track item; let i = $index) {
       <p
         appRevealOnScroll="rise"
         [style.--reveal-delay]="i * 0.1 + 's'"
-        class="rounded-2xl border border-border bg-background/60 p-4 text-sm leading-relaxed text-muted-foreground sm:p-5"
+        class="rounded-2xl border border-border bg-background/60 p-4 text-sm leading-relaxed text-muted-foreground sm:p-6 sm:text-base"
       >
         {{ item | translate }}
       </p>
