@@ -18,8 +18,8 @@ interface Feature {
 export class Features {
   protected readonly features: Feature[] = [
     { icon: '📰', titleKey: 'features.feedTitle', bodyKey: 'features.feedBody', accent: 'lime' },
-    { icon: '🎾', titleKey: 'features.courtsTitle', bodyKey: 'features.courtsBody', accent: 'clay' },
-    { icon: '🥎', titleKey: 'features.matchesTitle', bodyKey: 'features.matchesBody', accent: 'cobalt' },
+    { icon: '📍', titleKey: 'features.courtsTitle', bodyKey: 'features.courtsBody', accent: 'clay' },
+    { icon: '🎾', titleKey: 'features.matchesTitle', bodyKey: 'features.matchesBody', accent: 'cobalt' },
     { icon: '🛂', titleKey: 'features.passportTitle', bodyKey: 'features.passportBody', accent: 'lime' },
     { icon: '💬', titleKey: 'features.messagesTitle', bodyKey: 'features.messagesBody', accent: 'clay' },
     { icon: '🌍', titleKey: 'features.tripsTitle', bodyKey: 'features.tripsBody', accent: 'cobalt' },
