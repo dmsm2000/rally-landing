@@ -51,7 +51,19 @@ export class Translation {
         return stored as Locale;
       }
     } catch {
-      // ignore and fall back to default
+      // ignore and fall back to detection
+    }
+    return this.detectBrowserLocale();
+  }
+
+  /** No stored preference yet: match the visitor's own browser language before falling back to the default. */
+  private detectBrowserLocale(): Locale {
+    const languages = navigator.languages?.length ? navigator.languages : [navigator.language];
+    for (const language of languages) {
+      const prefix = language.toLowerCase().split('-')[0];
+      if ((LOCALES as readonly string[]).includes(prefix)) {
+        return prefix as Locale;
+      }
     }
     return DEFAULT_LOCALE;
   }
