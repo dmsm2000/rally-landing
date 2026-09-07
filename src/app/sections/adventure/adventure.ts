@@ -9,5 +9,5 @@ import { RevealOnScroll } from '../../core/reveal-on-scroll';
   templateUrl: './adventure.html',
 })
 export class Adventure {
-  protected readonly stamps = ['🇵🇹', '🇪🇸', '🇫🇷', '🇮🇹', '🇧🇷', '🇺🇸', '🇯🇵', '🇦🇺'];
+  protected readonly stamps = ['🇵🇹', '🇪🇸', '🇫🇷', '🇮🇹', '🇧🇷', '🇺🇸', '🇦🇴', '🇦🇺'];
 }

@@ -84,7 +84,8 @@ export const en = {
   },
   footer: {
     tagline: 'Wherever tennis takes you.',
-    madeWith: 'Made with ❤️ and a few balls lost behind the net.',
+    madeWithPrefix: 'Made with',
+    madeWithSuffix: 'and a few balls lost behind the net.',
     rights: '© {year} RALLY. All rights reserved.',
     contact: 'Get in touch',
   },

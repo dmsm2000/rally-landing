@@ -85,7 +85,8 @@ export const pt = {
   },
   footer: {
     tagline: 'Onde o ténis te levar.',
-    madeWith: 'Feito com ❤️ e algumas bolas perdidas atrás da rede.',
+    madeWithPrefix: 'Feito com',
+    madeWithSuffix: 'e algumas bolas perdidas atrás da rede.',
     rights: '© {year} RALLY. Todos os direitos reservados.',
     contact: 'Fala connosco',
   },

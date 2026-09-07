@@ -87,7 +87,8 @@ export const es = {
   },
   footer: {
     tagline: 'Donde el tenis te lleve.',
-    madeWith: 'Hecho con ❤️ y algunas pelotas perdidas detrás de la red.',
+    madeWithPrefix: 'Hecho con',
+    madeWithSuffix: 'y algunas pelotas perdidas detrás de la red.',
     rights: '© {year} RALLY. Todos los derechos reservados.',
     contact: 'Contáctanos',
   },
