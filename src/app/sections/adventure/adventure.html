@@ -26,7 +26,8 @@
       </div>
 
       <div class="mt-6 h-px w-full bg-border"></div>
-      <p class="mt-4 text-xs text-muted-foreground">{{ 'adventure.passportStats' | translate }}</p>
+      <!-- Emoji kept out of the interpolated text nodes — see the note in footer.html. -->
+      <p class="mt-4 text-xs text-muted-foreground"><span>🎾</span> {{ 'adventure.passportCourts' | translate }} · <span>🌍</span> {{ 'adventure.passportCountries' | translate }} · <span>🤝</span> {{ 'adventure.passportPlayers' | translate }}</p>
     </div>
 
     <span class="animate-float absolute -left-6 -top-6 text-3xl opacity-70" style="animation-delay: -2s" aria-hidden="true">✈️</span>

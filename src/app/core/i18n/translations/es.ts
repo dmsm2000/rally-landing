@@ -70,7 +70,9 @@ export const es = {
     title: 'El tenis también es una excusa para viajar',
     body: 'Cada ciudad tiene una pista esperando ser descubierta - y alguien dispuesto a enseñártela. Tu pasaporte de tenis se llena de países, no de selfies de aeropuerto.',
     passportLabel: 'Pasaporte de Tenis',
-    passportStats: '🎾 pistas capturadas · 🌍 países sellados · 🤝 jugadores conocidos',
+    passportCourts: 'pistas capturadas',
+    passportCountries: 'países sellados',
+    passportPlayers: 'jugadores conocidos',
   },
   cta: {
     eyebrow: 'Todavía en construcción, pero de verdad',

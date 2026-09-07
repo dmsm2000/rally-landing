@@ -68,7 +68,9 @@ export const pt = {
     title: 'O ténis também é desculpa para viajar',
     body: 'Cada cidade tem um court à espera de ser descoberto - e alguém disposto a mostrar-te onde fica. O teu passaporte de ténis enche-se de países, não de selfies de aeroporto.',
     passportLabel: 'Passaporte de Ténis',
-    passportStats: '🎾 courts capturados · 🌍 países carimbados · 🤝 jogadores conhecidos',
+    passportCourts: 'courts capturados',
+    passportCountries: 'países carimbados',
+    passportPlayers: 'jogadores conhecidos',
   },
   cta: {
     eyebrow: 'Ainda em construção, mas a sério',

@@ -67,7 +67,9 @@ export const en = {
     title: 'Tennis is also a good excuse to travel',
     body: 'Every city has a court waiting to be found - and someone willing to show you around. Your tennis passport fills up with countries, not airport selfies.',
     passportLabel: 'Tennis Passport',
-    passportStats: '🎾 courts captured · 🌍 countries stamped · 🤝 players met',
+    passportCourts: 'courts captured',
+    passportCountries: 'countries stamped',
+    passportPlayers: 'players met',
   },
   cta: {
     eyebrow: 'Still under construction, but for real',

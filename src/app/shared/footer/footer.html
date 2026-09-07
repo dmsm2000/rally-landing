@@ -10,7 +10,9 @@
     <a href="mailto:hello@rallytns.com" class="text-eyebrow text-lime hover:underline">{{ 'footer.contact' | translate }}</a>
 
     <div class="flex flex-col items-center gap-1 pt-4 text-xs text-muted-foreground">
-      <p>{{ 'footer.madeWithPrefix' | translate }} ❤️ {{ 'footer.madeWithSuffix' | translate }}</p>
+      <!-- Emoji in its own <span>: twemoji.parse() swaps out any text node holding one, and Angular would keep
+           writing this interpolation into the detached node — the text froze on the first locale rendered. -->
+      <p>{{ 'footer.madeWithPrefix' | translate }} <span>❤️</span> {{ 'footer.madeWithSuffix' | translate }}</p>
       <p>{{ 'footer.rights' | translate: { year } }}</p>
     </div>
   </div>
