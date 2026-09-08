@@ -1,16 +1,62 @@
 <!doctype html>
-<html lang="pt">
+<!-- lang="en" acompanha as meta tags abaixo, que são a única coisa que um crawler sem JavaScript
+     chega a ler. O App sobrepõe este atributo em runtime com o locale real do visitante. -->
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>RALLY</title>
-  <meta name="description" content="RALLY é a app social de ténis: encontra com quem jogar, descobre courts e organiza o jogo — sem rankings, sem drama.">
+  <title>RALLY — Find someone to play tennis with</title>
+  <meta name="description" content="RALLY is the social tennis app: find someone to play with, discover courts and sort out the game — zero rankings, zero drama.">
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#242b3d">
+  <link rel="canonical" href="https://rallytns.com/">
+
+  <!-- Open Graph e Twitter Card ficam no HTML estático de propósito: os crawlers do Instagram,
+       WhatsApp, Facebook, LinkedIn e X não executam JavaScript, por isso nunca chegam a ver nada
+       que o Angular renderize. As URLs das imagens têm de ser absolutas — caminhos relativos
+       falham silenciosamente em todos eles. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="RALLY">
+  <meta property="og:url" content="https://rallytns.com/">
+  <meta property="og:title" content="RALLY — Find someone to play tennis with">
+  <meta property="og:description" content="Find tennis partners at your level, discover courts and get the game sorted. Zero rankings, zero drama.">
+  <meta property="og:image" content="https://rallytns.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="RALLY — the RALLY logo over a tennis court">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="pt_PT">
+  <meta property="og:locale:alternate" content="es_ES">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RALLY — Find someone to play tennis with">
+  <meta name="twitter:description" content="Find tennis partners at your level, discover courts and get the game sorted. Zero rankings, zero drama.">
+  <meta name="twitter:image" content="https://rallytns.com/assets/og-image.png">
+
   <link rel="icon" type="image/svg+xml" href="assets/rally-logo-white.svg">
+  <!-- Fallback PNG: nem todos os contextos aceitam favicon SVG, incluindo alguns resultados de pesquisa. -->
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=JetBrains+Mono:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- O sameAs é o que diz ao Google que a conta de Instagram e este domínio são a mesma entidade.
+       Quando a app sair, acrescentar um bloco SoftwareApplication com os links das stores. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "RALLY",
+    "url": "https://rallytns.com/",
+    "logo": "https://rallytns.com/assets/rally-logo-white.svg",
+    "image": "https://rallytns.com/assets/og-image.png",
+    "email": "hello@rallytns.com",
+    "description": "Social tennis app for finding someone to play with, discovering courts and organising the game.",
+    "sameAs": ["https://www.instagram.com/rally.tns/"]
+  }
+  </script>
 </head>
 <body>
   <app-root></app-root>
