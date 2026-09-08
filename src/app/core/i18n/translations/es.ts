@@ -4,6 +4,7 @@ export const es = {
   nav: {
     rallyHome: 'Inicio de RALLY',
     language: 'Idioma',
+    instagram: 'RALLY en Instagram',
     howItWorks: 'Cómo funciona',
     features: 'Funcionalidades',
     contact: 'Contacto',

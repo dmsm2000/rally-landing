@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { TranslatePipe } from '../../core/i18n/translate-pipe';
+import { InstagramLink } from '../instagram-link/instagram-link';
 
 @Component({
-  imports: [TranslatePipe],
+  imports: [TranslatePipe, InstagramLink],
   selector: 'app-footer',
   styleUrl: './footer.scss',
   templateUrl: './footer.html',

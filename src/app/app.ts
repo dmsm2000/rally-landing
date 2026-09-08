@@ -2,6 +2,7 @@ import { Component, effect, inject } from '@angular/core';
 import { TranslatePipe } from './core/i18n/translate-pipe';
 import { Translation } from './core/i18n/translation';
 import { TwemojiRendererService } from './core/services/twemoji-renderer.service';
+import { InstagramLink } from './shared/instagram-link/instagram-link';
 import { LanguageSwitcher } from './shared/language-switcher/language-switcher';
 import { Footer } from './shared/footer/footer';
 import { Hero } from './sections/hero/hero';
@@ -12,7 +13,7 @@ import { Adventure } from './sections/adventure/adventure';
 import { Cta } from './sections/cta/cta';
 
 @Component({
-  imports: [TranslatePipe, LanguageSwitcher, Footer, Hero, HowItWorks, Features, NotThis, Adventure, Cta],
+  imports: [TranslatePipe, InstagramLink, LanguageSwitcher, Footer, Hero, HowItWorks, Features, NotThis, Adventure, Cta],
   selector: 'app-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',

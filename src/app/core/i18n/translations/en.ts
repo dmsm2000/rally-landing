@@ -2,6 +2,7 @@ export const en = {
   nav: {
     rallyHome: 'RALLY home',
     language: 'Language',
+    instagram: 'RALLY on Instagram',
     howItWorks: 'How it works',
     features: 'Features',
     contact: 'Contact',
