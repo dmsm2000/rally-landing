@@ -1,0 +1,39 @@
+{
+  "id": "/en/",
+  "name": "RALLY \u2014 Find someone to play tennis with",
+  "short_name": "RALLY",
+  "description": "RALLY is the social tennis app: find partners at your level, discover courts and get the game sorted. Zero rankings, zero drama.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "/en/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#06090f",
+  "theme_color": "#242b3d",
+  "categories": [
+    "sports",
+    "social",
+    "lifestyle"
+  ],
+  "icons": [
+    {
+      "src": "/assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

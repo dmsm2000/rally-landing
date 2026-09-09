@@ -27,12 +27,12 @@
   </svg>
 
   <div class="relative z-10 flex max-w-3xl flex-col items-center gap-6">
-    <span appRevealOnScroll="scale" class="text-eyebrow rounded-full border border-border bg-card/70 px-4 py-1.5 text-lime backdrop-blur-md">
+    <span data-enter="scale" class="text-eyebrow rounded-full border border-border bg-card/70 px-4 py-1.5 text-lime backdrop-blur-md">
       {{ 'hero.eyebrow' | translate }}
     </span>
 
     <h1
-      appRevealOnScroll="rise"
+      data-enter="rise"
       [style.--reveal-delay]="'0.1s'"
       class="text-display text-6xl text-bone sm:text-8xl"
     >
@@ -40,14 +40,14 @@
     </h1>
 
     <p
-      appRevealOnScroll="rise"
+      data-enter="rise"
       [style.--reveal-delay]="'0.2s'"
       class="max-w-xl text-balance text-lg text-muted-foreground sm:text-xl"
     >
       {{ 'hero.subtitle' | translate }}
     </p>
 
-    <div appRevealOnScroll="rise" [style.--reveal-delay]="'0.3s'" class="mt-2 flex flex-col items-center gap-4 sm:flex-row">
+    <div data-enter="rise" [style.--reveal-delay]="'0.3s'" class="mt-2 flex flex-col items-center gap-4 sm:flex-row">
       <a
         [routerLink]="[]"
         fragment="contact"

@@ -1,6 +1,13 @@
 import { DOCUMENT, Service, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { LOCALES, LOCALE_HTML_LANG, LOCALE_OG, Locale, localeUrl } from '../i18n/locale';
+import {
+  LOCALES,
+  LOCALE_HTML_LANG,
+  LOCALE_OG,
+  Locale,
+  localeManifestPath,
+  localeUrl,
+} from '../i18n/locale';
 import { Translation } from '../i18n/translation';
 
 /**
@@ -51,6 +58,7 @@ export class Seo {
     }
 
     this.setCanonicalAndAlternates(url);
+    this.setManifest(locale);
   }
 
   /**
@@ -76,6 +84,12 @@ export class Seo {
     head.appendChild(
       this.link({ rel: 'alternate', hreflang: 'x-default', href: localeUrl(X_DEFAULT_LOCALE) }),
     );
+  }
+
+  private setManifest(locale: Locale): void {
+    const head = this.document.head;
+    head.querySelector('link[rel="manifest"]')?.remove();
+    head.appendChild(this.link({ rel: 'manifest', href: localeManifestPath(locale) }));
   }
 
   private link(attributes: Record<string, string>): HTMLLinkElement {

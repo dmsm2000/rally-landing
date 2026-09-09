@@ -59,6 +59,16 @@ export function localeRouterPath(locale: Locale): string {
 }
 
 /**
+ * Manifest per locale. An install started from /en/ has to get an English name and open the English
+ * page, so the three cannot share one file. Same shape as the paths above: the default locale keeps
+ * the unsuffixed filename.
+ */
+export function localeManifestPath(locale: Locale): string {
+  const path = LOCALE_PATHS[locale];
+  return path ? `/site.${path}.webmanifest` : '/site.webmanifest';
+}
+
+/**
  * The locale a URL points at, from its first path segment. Used to seed the active locale
  * synchronously at bootstrap, so the server and the browser start from the same one and hydration
  * has nothing to reconcile.
