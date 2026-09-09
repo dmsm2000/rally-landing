@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import twemoji from '@twemoji/api';
 
 // Pinned to the installed @twemoji/api version so the CDN artwork can't drift/break unexpectedly.
@@ -15,11 +16,14 @@ const SVG_BASE = 'https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/';
  */
 @Injectable({ providedIn: 'root' })
 export class TwemojiRendererService {
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   private observer?: MutationObserver;
   private renderScheduled = false;
 
   start(): void {
-    if (this.observer) {
+    // Prerendering has no MutationObserver, and emoji artwork is not worth shipping in the static
+    // HTML anyway — the browser swaps them in on boot.
+    if (this.observer || !this.isBrowser) {
       return;
     }
     this.render();

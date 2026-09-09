@@ -1,11 +1,16 @@
 import { Component, ElementRef, HostListener, inject, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '../../core/i18n/translate-pipe';
-import { LOCALE_FLAGS, LOCALE_LABELS, Locale } from '../../core/i18n/locale';
+import { LOCALE_FLAGS, LOCALE_LABELS, Locale, localeRouterPath } from '../../core/i18n/locale';
 import { Translation } from '../../core/i18n/translation';
 import { TwemojiRendererService } from '../../core/services/twemoji-renderer.service';
 
+/**
+ * Each language is a URL now, so the switcher is a set of real links rather than a state toggle:
+ * a crawler can follow them, and the address bar always matches the language on screen.
+ */
 @Component({
-  imports: [TranslatePipe],
+  imports: [TranslatePipe, RouterLink],
   selector: 'app-language-switcher',
   styleUrl: './language-switcher.scss',
   templateUrl: './language-switcher.html',
@@ -19,13 +24,12 @@ export class LanguageSwitcher {
 
   private readonly host = inject(ElementRef<HTMLElement>);
 
-  protected toggle(): void {
-    this.open.set(!this.open());
+  protected pathFor(locale: Locale): string {
+    return localeRouterPath(locale);
   }
 
-  protected select(locale: Locale): void {
-    this.i18n.setLocale(locale);
-    this.open.set(false);
+  protected toggle(): void {
+    this.open.set(!this.open());
   }
 
   @HostListener('document:click', ['$event'])

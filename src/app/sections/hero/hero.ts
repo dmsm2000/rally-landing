@@ -1,9 +1,10 @@
 import { Component, HostListener, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '../../core/i18n/translate-pipe';
 import { RevealOnScroll } from '../../core/reveal-on-scroll';
 
 @Component({
-  imports: [TranslatePipe, RevealOnScroll],
+  imports: [TranslatePipe, RevealOnScroll, RouterLink],
   selector: 'app-hero',
   styleUrl: './hero.scss',
   templateUrl: './hero.html',

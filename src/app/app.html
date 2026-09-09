@@ -1,14 +1,14 @@
 <header class="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/70 px-5 py-4 backdrop-blur-md sm:px-8">
   <div class="mx-auto flex max-w-6xl items-center justify-between gap-3">
-    <a href="#top" class="flex items-center gap-2" [attr.aria-label]="'nav.rallyHome' | translate">
+    <a [routerLink]="[]" fragment="top" class="flex items-center gap-2" [attr.aria-label]="'nav.rallyHome' | translate">
       <img src="assets/rally-logo-white.svg" alt="" class="size-8" />
       <span class="text-display text-lg text-bone">RALLY</span>
     </a>
 
     <nav class="hidden items-center gap-6 text-eyebrow text-muted-foreground sm:flex">
-      <a href="#how-it-works" class="transition-colors hover:text-bone">{{ 'nav.howItWorks' | translate }}</a>
-      <a href="#features" class="transition-colors hover:text-bone">{{ 'nav.features' | translate }}</a>
-      <a href="#contact" class="transition-colors hover:text-bone">{{ 'nav.contact' | translate }}</a>
+      <a [routerLink]="[]" fragment="how-it-works" class="transition-colors hover:text-bone">{{ 'nav.howItWorks' | translate }}</a>
+      <a [routerLink]="[]" fragment="features" class="transition-colors hover:text-bone">{{ 'nav.features' | translate }}</a>
+      <a [routerLink]="[]" fragment="contact" class="transition-colors hover:text-bone">{{ 'nav.contact' | translate }}</a>
     </nav>
 
     <div class="flex items-center gap-2">
@@ -19,12 +19,7 @@
 </header>
 
 <main>
-  <app-hero />
-  <app-how-it-works />
-  <app-features />
-  <app-not-this />
-  <app-adventure />
-  <app-cta />
+  <router-outlet />
 </main>
 
 <app-footer />

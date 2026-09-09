@@ -15,9 +15,9 @@
     <ul class="no-scrollbar absolute right-0 z-30 mt-1.5 w-24 overflow-hidden rounded-xl border border-border bg-card py-1 leading-none shadow-lg" role="listbox">
       @for (locale of i18n.locales; track locale) {
         <li>
-          <button
-            type="button"
-            (click)="select(locale)"
+          <a
+            [routerLink]="pathFor(locale)"
+            (click)="open.set(false)"
             role="option"
             [attr.aria-selected]="i18n.locale() === locale"
             class="flex w-full cursor-pointer items-center gap-1.5 px-3 py-1.5 text-left text-xs leading-none transition-colors duration-150"
@@ -25,7 +25,7 @@
           >
             <img [src]="twemoji.urlFor(flags[locale])" alt="" class="size-4 shrink-0" />
             <span>{{ labels[locale] }}</span>
-          </button>
+          </a>
         </li>
       }
     </ul>

@@ -1,4 +1,13 @@
-import { Directive, ElementRef, OnDestroy, OnInit, inject, input } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  PLATFORM_ID,
+  inject,
+  input,
+} from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 /**
  * Adds `is-visible` the first time the element scrolls into view, which is what the `[data-reveal]`
@@ -17,10 +26,18 @@ export class RevealOnScroll implements OnInit, OnDestroy {
   readonly revealDelay = input('0s');
 
   private readonly host = inject(ElementRef<HTMLElement>);
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   private observer?: IntersectionObserver;
 
   ngOnInit(): void {
     const element = this.host.nativeElement as HTMLElement;
+
+    // Prerendering must not write `is-visible` into the static HTML: the browser would hydrate an
+    // already-revealed page and every animation would be dead on arrival. Visitors without
+    // JavaScript are covered by the <noscript> rule in index.html instead.
+    if (!this.isBrowser) {
+      return;
+    }
 
     if (typeof IntersectionObserver === 'undefined') {
       element.classList.add('is-visible');

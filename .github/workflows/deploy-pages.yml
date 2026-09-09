@@ -48,9 +48,9 @@ jobs:
 
       - run: npx ng build --configuration production --base-href /
 
-      # SPA fallback: GitHub Pages has no server-side rewrites. This page has no router today
-      # (it's a single scrolling page with in-page anchors), but keeping this mirrors the main
-      # `rally` app's deploy strategy and costs nothing if routing is ever added here.
+      # SPA fallback: GitHub Pages has no server-side rewrites. The three locale routes (/, /en/,
+      # /es/) are prerendered to real files, so this only catches genuinely unknown URLs — it hands
+      # them the Portuguese page, whose wildcard route then redirects them to the root.
       - run: cp dist/rally-landing/browser/index.html dist/rally-landing/browser/404.html
 
       - uses: actions/configure-pages@v5

@@ -1,17 +1,24 @@
-import { Service, computed, signal } from '@angular/core';
-import { DEFAULT_LOCALE, LOCALES, Locale } from './locale';
+import { DOCUMENT, Service, computed, inject, signal } from '@angular/core';
+import { DEFAULT_LOCALE, LOCALES, Locale, localeFromPath } from './locale';
 import { en } from './translations/en';
 import { es } from './translations/es';
 import { pt } from './translations/pt';
 
-const STORAGE_KEY = 'rally-landing.locale';
-
 const DICTIONARIES: Record<Locale, Record<string, unknown>> = { pt, en, es };
 
-/** Runtime translation lookup by dotted key path, e.g. "hero.title". Persists the chosen locale in localStorage. */
+/**
+ * Runtime translation lookup by dotted key path, e.g. "hero.title".
+ *
+ * The active locale is owned by the URL (`/`, `/en/`, `/es/`), not by localStorage or the browser's
+ * language: each locale has to be a real, crawlable page for hreflang to mean anything, and a
+ * remembered preference silently contradicting the URL is exactly what breaks that. Seeding it from
+ * the path at construction — rather than waiting for the router — also means the prerendered HTML
+ * and the first browser render agree, so hydration has nothing to patch up.
+ */
 @Service()
 export class Translation {
-  private readonly _locale = signal<Locale>(this.readStoredLocale());
+  private readonly document = inject(DOCUMENT);
+  private readonly _locale = signal<Locale>(localeFromPath(this.document.location?.pathname ?? '/'));
 
   readonly locale = this._locale.asReadonly();
   readonly locales = LOCALES;
@@ -20,11 +27,6 @@ export class Translation {
 
   setLocale(locale: Locale): void {
     this._locale.set(locale);
-    try {
-      localStorage.setItem(STORAGE_KEY, locale);
-    } catch {
-      // localStorage may be unavailable (private mode) — locale still works for the session.
-    }
   }
 
   t(key: string, params?: Record<string, string | number>): string {
@@ -42,29 +44,5 @@ export class Translation {
 
   private interpolate(text: string, params: Record<string, string | number>): string {
     return text.replace(/\{(\w+)\}/g, (match, name) => (name in params ? String(params[name]) : match));
-  }
-
-  private readStoredLocale(): Locale {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored && (LOCALES as readonly string[]).includes(stored)) {
-        return stored as Locale;
-      }
-    } catch {
-      // ignore and fall back to detection
-    }
-    return this.detectBrowserLocale();
-  }
-
-  /** No stored preference yet: match the visitor's own browser language before falling back to the default. */
-  private detectBrowserLocale(): Locale {
-    const languages = navigator.languages?.length ? navigator.languages : [navigator.language];
-    for (const language of languages) {
-      const prefix = language.toLowerCase().split('-')[0];
-      if ((LOCALES as readonly string[]).includes(prefix)) {
-        return prefix as Locale;
-      }
-    }
-    return DEFAULT_LOCALE;
   }
 }

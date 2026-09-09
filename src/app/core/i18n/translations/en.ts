@@ -1,4 +1,10 @@
 export const en = {
+  seo: {
+    title: 'RALLY — Find someone to play tennis with',
+    description:
+      'RALLY is the social tennis app: find partners at your level, discover courts and get the game sorted. Zero rankings, zero drama.',
+    ogImageAlt: 'RALLY — the RALLY logo over a tennis court',
+  },
   nav: {
     rallyHome: 'RALLY home',
     language: 'Language',

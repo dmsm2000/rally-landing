@@ -1,6 +1,12 @@
 import type { Translations } from './en';
 
 export const es = {
+  seo: {
+    title: 'RALLY — Encuentra con quién jugar al tenis',
+    description:
+      'RALLY es la app social de tenis: encuentra compañeros de tu nivel, descubre pistas y organiza el partido. Cero rankings, cero drama.',
+    ogImageAlt: 'RALLY — el logotipo de RALLY sobre una pista de tenis',
+  },
   nav: {
     rallyHome: 'Inicio de RALLY',
     language: 'Idioma',
