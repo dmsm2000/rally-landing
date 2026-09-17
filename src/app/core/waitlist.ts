@@ -12,7 +12,7 @@ export interface WaitlistEntry {
 export type WaitlistResult = { ok: true } | { ok: false; reason: 'invalid-email' | 'network' };
 
 /**
- * Calls the `join_waitlist` RPC (see rally/supabase/migrations/0034_landing_waitlist_rpc.sql)
+ * Calls the `join_waitlist` RPC (see rally-supabase/migrations/0034_landing_waitlist_rpc.sql)
  * instead of writing to `public.landing_waitlist` directly — see that migration for why a plain
  * table insert/upsert doesn't work here. No @supabase/supabase-js: a single RPC call doesn't
  * justify the dependency weight on a marketing page. Nothing is ever read back client-side.
